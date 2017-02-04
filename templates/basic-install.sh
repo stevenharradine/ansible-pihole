@@ -1042,33 +1042,33 @@ echo "${1:-'NOT SET'}"
 
 update_dialogs() {
   # reconfigure
-  if [ "${reconfigure}" = true ]; then
-    opt1a="Repair"
-    opt1b="This will retain existing settings"
-    strAdd="You will remain on the same version"
-  else
+#  if [ "${reconfigure}" = true ]; then
+#    opt1a="Repair"
+#    opt1b="This will retain existing settings"
+#    strAdd="You will remain on the same version"
+#  else
     opt1a="Update"
     opt1b="This will retain existing settings."
     strAdd="You will be updated to the latest version."
-  fi
-  opt2a="Reconfigure"
-  opt2b="This will allow you to enter new settings"
-
-  UpdateCmd=$(whiptail --title "Existing Install Detected!" --menu "\n\nWe have detected an existing install.\n\nPlease choose from the following options: \n($strAdd)" ${r} ${c} 2 \
-  "${opt1a}"  "${opt1b}" \
-  "${opt2a}"  "${opt2b}" 3>&2 2>&1 1>&3) || \
-  { echo "::: Cancel selected. Exiting"; exit 1; }
-
-  case ${UpdateCmd} in
-    ${opt1a})
+#  fi
+#  opt2a="Reconfigure"
+#  opt2b="This will allow you to enter new settings"
+#
+#  UpdateCmd=$(whiptail --title "Existing Install Detected!" --menu "\n\nWe have detected an existing install.\n\nPlease choose from the following options: \n($strAdd)" ${r} ${c} 2 \
+#  "${opt1a}"  "${opt1b}" \
+#  "${opt2a}"  "${opt2b}" 3>&2 2>&1 1>&3) || \
+#  { echo "::: Cancel selected. Exiting"; exit 1; }
+#
+#  case ${UpdateCmd} in
+#    ${opt1a})
       echo "::: ${opt1a} option selected."
       useUpdateVars=true
-      ;;
-    ${opt2a})
-      echo "::: ${opt2a} option selected"
-      useUpdateVars=false
-      ;;
-    esac
+#      ;;
+#    ${opt2a})
+#      echo "::: ${opt2a} option selected"
+#      useUpdateVars=false
+#      ;;
+#    esac
 }
 
 main() {
