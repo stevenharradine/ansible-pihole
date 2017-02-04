@@ -1,0 +1,24 @@
+---
+- name: clone omniture-to-pagerduty | git
+  git:
+    repo: "https://github.com/pi-hole/pi-hole.git"
+    dest: /tmp/pi-hole
+    update: yes
+    force: yes
+
+- name: copy configuration
+  template:
+    src: templates/basic-install.sh
+    dest: /tmp/pi-hole/automated-install/basic-install.sh
+    mode: 0644
+
+- name: run modified unattended installer
+  shell: bash /tmp/pi-hole/automated-install/basic-install.sh
+
+- name: set cron jobs
+  cron:
+    name: "daily updater"
+    user: "www-data"
+    minute: "0"
+    hour: "0"
+    job: "/usr/local/bin/pihole -up"

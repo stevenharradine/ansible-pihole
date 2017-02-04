@@ -1,0 +1,12 @@
+---
+galaxy_info:
+  author: "Steven Harradine"
+  description: "Ansible role to install and configure PiHole for ad blocking on the DNS level."
+  license: "MIT"
+  platforms:
+    - name: "Ubuntu"
+      versions:
+        - all
+  categories:
+    - "networking"
+    - "dns"
