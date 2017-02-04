@@ -39,4 +39,3 @@
 
 - debug:
     msg: "Your password is {{ password.stdout_lines }}"
-  ignore_errors: yes
