@@ -1037,7 +1037,7 @@ displayFinalMessage() {
 #View the web interface at http://pi.hole/admin or http://${IPV4_ADDRESS%/*}/admin
 #
 #Your Admin Webpage login password is ${1:-"NOT SET"}" ${r} ${c}
-echo "${1:-'NOT SET'}"
+echo "${1:-'NOT SET'}" > /tmp/pi-hole/password
 }
 
 update_dialogs() {
