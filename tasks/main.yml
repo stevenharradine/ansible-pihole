@@ -22,7 +22,7 @@
   register: password
 
 - name: clean up password
-  shell: /bin/cat /tmp/pi-hole/password
+  shell: /bin/rm /tmp/pi-hole/password
 
 - name: set cron jobs
   become: yes
@@ -35,4 +35,4 @@
     job: "/usr/local/bin/pihole -up"
 
 - debug:
-    msg: "Your password is {{ password }}"
+    msg: "Your password is {{ password.stdout_lines }}"
