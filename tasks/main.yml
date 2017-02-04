@@ -7,15 +7,19 @@
     force: yes
 
 - name: copy configuration
-  template:
+  copy:
     src: templates/basic-install.sh
     dest: /tmp/pi-hole/automated-install/basic-install.sh
     mode: 0644
 
 - name: run modified unattended installer
+  become: yes
+  become_user: root
   shell: bash /tmp/pi-hole/automated-install/basic-install.sh
 
 - name: set cron jobs
+  become: yes
+  become_user: root
   cron:
     name: "daily updater"
     user: "www-data"
