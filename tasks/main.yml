@@ -1,5 +1,5 @@
 ---
-- name: clone omniture-to-pagerduty | git
+- name: clone pi-hole | git
   git:
     repo: "https://github.com/pi-hole/pi-hole.git"
     dest: /tmp/pi-hole
