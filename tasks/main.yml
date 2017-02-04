@@ -20,6 +20,7 @@
 - name: get password
   shell: /bin/cat /tmp/pi-hole/password
   register: password
+  ignore_errors: yes
 
 - name: clean up password
   file:
@@ -38,3 +39,4 @@
 
 - debug:
     msg: "Your password is {{ password.stdout_lines }}"
+  ignore_errors: yes
