@@ -22,7 +22,9 @@
   register: password
 
 - name: clean up password
-  shell: /bin/rm /tmp/pi-hole/password
+  file:
+    path: /tmp/pi-hole/password
+    state: absent
 
 - name: set cron jobs
   become: yes
